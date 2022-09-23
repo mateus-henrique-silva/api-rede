@@ -13,13 +13,7 @@ interface GetElement{
 app.get('/estudando', async (req, res) => {
 
     const fichas = await prisma.ficha.findMany({
-        include: {
-           _count: {
-              select: {
-                 Ficha: true,
-              }
-           }
-        }
+      select: ficha,
      })
      return res.json(fichas);
 })

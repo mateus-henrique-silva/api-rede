@@ -8,11 +8,11 @@ const prisma = new PrismaClient({
     log: ['query']
  })
 interface GetElement{
-   Ficha: string;
+   ficha: string;
 }
 app.get('/estudando', async (req, res) => {
 
-    const fichas = await prisma.ficha.findMany({
+    const fichas = await prisma.ficha.findMany<GetElement>({
         include: {
            _count: {
               select: {

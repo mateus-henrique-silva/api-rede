@@ -7,10 +7,8 @@ app.use(express.json())
 const prisma = new PrismaClient({
     log: ['query']
  })
-interface GetElement{
-   Ficha: string;
-}
-app.get('/estudando', async (req, res) => {
+
+app.get('/estudando', (req, res) => {
 
     const fichas = await prisma.ficha.findMany({
         include: {

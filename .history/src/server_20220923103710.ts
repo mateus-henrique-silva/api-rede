@@ -8,7 +8,7 @@ const prisma = new PrismaClient({
     log: ['query']
  })
 interface GetElement{
-   Ficha: string;
+   Ficha:
 }
 app.get('/estudando', async (req, res) => {
 
