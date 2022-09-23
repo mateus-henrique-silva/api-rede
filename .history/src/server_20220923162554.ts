@@ -15,19 +15,8 @@ app.get('/estudando', async (req, res) => {
      })
      return res.json(fichas);
 })
-app.post('/estudando:id', async (req, res)=>{
-   const messageId:string = req.params.id;
-   const body:any = req.body;
-   const adNew = await prisma.ficha.create({
-      data: {
-         id:messageId,
-         name: body.name,
-        Message:body.message,
-       
-      }
-   });
-   return console.log(adNew)
-   return res.status(201).json(adNew);
+app.post('/estudando', async (req, res)=>{
+   const messageId = request.params.id;
    
 
 })

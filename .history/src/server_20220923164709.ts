@@ -17,17 +17,15 @@ app.get('/estudando', async (req, res) => {
 })
 app.post('/estudando:id', async (req, res)=>{
    const messageId:string = req.params.id;
-   const body:any = req.body;
-   const adNew = await prisma.ficha.create({
+   const body = req.body;
+   const adNew = await prisma.ad.create({
       data: {
-         id:messageId,
+         messageId,
          name: body.name,
-        Message:body.message,
-       
+        message:body.message
       }
    });
-   return console.log(adNew)
-   return res.status(201).json(adNew);
+   return response.status(201).json(adNew);
    
 
 })

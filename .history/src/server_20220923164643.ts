@@ -16,18 +16,22 @@ app.get('/estudando', async (req, res) => {
      return res.json(fichas);
 })
 app.post('/estudando:id', async (req, res)=>{
-   const messageId:string = req.params.id;
-   const body:any = req.body;
-   const adNew = await prisma.ficha.create({
+   const messageId = req.params.id;
+   const body = req.body;
+   const adNew = await prisma.ad.create({
       data: {
-         id:messageId,
+         messageId,
          name: body.name,
-        Message:body.message,
-       
+         yearsPlaying: body.yearsPlaying,
+         discord: body.discord,
+         weekDays: body.weekDays.join(','),
+         hourStart: convertHourToMinuteNow(body.hourStart),
+         hourEnd: convertHourToMinuteNow(body.hourEnd),
+         useVoiceChannel: body.useVoiceChannel,
+
       }
    });
-   return console.log(adNew)
-   return res.status(201).json(adNew);
+   return response.status(201).json(adNew);
    
 
 })

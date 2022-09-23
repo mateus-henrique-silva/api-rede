@@ -26,7 +26,7 @@ app.post('/estudando:id', async (req, res)=>{
        
       }
    });
-   return console.log(adNew)
+   
    return res.status(201).json(adNew);
    
 

@@ -23,10 +23,9 @@ app.post('/estudando:id', async (req, res)=>{
          id:messageId,
          name: body.name,
         Message:body.message,
-       
+        http://127.0.0.1:404
       }
    });
-   return console.log(adNew)
    return res.status(201).json(adNew);
    
 

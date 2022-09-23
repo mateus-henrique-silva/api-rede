@@ -23,10 +23,9 @@ app.post('/estudando:id', async (req, res)=>{
          id:messageId,
          name: body.name,
         Message:body.message,
-       
+        createdAt
       }
    });
-   return console.log(adNew)
    return res.status(201).json(adNew);
    
 
